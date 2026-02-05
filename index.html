@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZUNCHOS // Estructura para agencias que se desmoronan</title>
+    <meta name="description"
+        content="Infraestructura autónoma para agencias B2B. No es chatbot. No es CRM. Es arquitectura que sustituye dependencia humana por sistemas.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Section 1: IMPACTO -->
+    <section id="impacto" class="section" data-parallax="hero">
+        <div class="parallax-layer background-wall"></div>
+        <div class="parallax-layer lamp-light"></div>
+        <div class="parallax-layer foreground">
+            <div class="hero-content">
+                <img src="Utils/ZUNCHOS.png" alt="ZUNCHOS" class="hero-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: DESCENSO (Problem) -->
+    <section id="descenso" class="section" data-parallax="descenso">
+        <div class="parallax-layer background-wall"></div>
+        <div class="parallax-layer midground">
+            <div class="content-block">
+                <div class="text-engraved">
+                    <p class="statement">No faltan leads</p>
+                </div>
+            </div>
+        </div>
+        <div class="parallax-layer foreground">
+            <div class="content-block">
+                <div class="text-engraved">
+                    <p class="statement">Falta estructura</p>
+                </div>
+            </div>
+        </div>
+        <div class="parallax-layer deep-foreground">
+            <div class="content-block">
+                <div class="text-engraved">
+                    <p class="statement statement-critical">Dependencia humana = sistema frágil</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: TENSIÓN (Metaphor) -->
+    <section id="tension" class="section section-tension" data-parallax="tension">
+        <div class="parallax-layer background-wall"></div>
+        <div class="parallax-layer midground">
+            <div class="content-block tension-metaphor">
+                <div class="metaphor-line">
+                    <span class="metaphor-item">Camión</span>
+                </div>
+                <div class="metaphor-line">
+                    <span class="metaphor-item">Carga</span>
+                </div>
+                <div class="metaphor-line">
+                    <span class="metaphor-item">Personas sujetando</span>
+                </div>
+            </div>
+        </div>
+        <div class="parallax-layer foreground">
+            <div class="content-block tension-conclusion">
+                <p class="inequality">≠ solución</p>
+                <p class="solution-statement">ZUNCHOS = zuncho de acero</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: NÚCLEO (What is ZUNCHOS) -->
+    <section id="nucleo" class="section section-nucleo" data-parallax="nucleo">
+        <div class="parallax-layer background-wall"></div>
+        <div class="parallax-layer foreground">
+            <div class="content-block nucleo-content">
+                <div class="nucleo-denial">
+                    <p class="denial-item">No es chatbot</p>
+                    <p class="denial-item">No es CRM</p>
+                    <p class="denial-item">No es automatización suelta</p>
+                </div>
+                <div class="nucleo-affirmation">
+                    <p class="affirmation-header">Sí es:</p>
+                    <ul class="affirmation-list">
+                        <li>Infraestructura</li>
+                        <li>Sistema operativo</li>
+                        <li>Arquitectura autónoma</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: RESULTADO (Stability) -->
+    <section id="resultado" class="section section-resultado" data-parallax="resultado">
+        <div class="parallax-layer background-wall"></div>
+        <div class="parallax-layer foreground">
+            <div class="content-block resultado-content">
+                <div class="resultado-list">
+                    <p class="resultado-item">Menos caos</p>
+                    <p class="resultado-item">Menos dependencia</p>
+                    <p class="resultado-item">Más margen</p>
+                </div>
+                <div class="resultado-conclusion">
+                    <p class="conclusion-statement">El sistema aguanta solo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: CIERRE (CTA) -->
+    <section id="cierre" class="section section-cierre" data-parallax="cierre">
+        <div class="parallax-layer background-wall"></div>
+        <div class="parallax-layer foreground">
+            <div class="content-block cierre-content">
+                <p class="final-statement">
+                    Si tu agencia depende de personas para no romperse,<br>
+                    está <span class="highlight-term">deszunchada</span>.
+                </p>
+                <a href="#" class="cta-button" id="cta-main">Revisar puntos de tensión</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#" class="footer-link" onclick="openModal('modal-legal'); return false;">Aviso Legal</a>
+                <span class="footer-separator">·</span>
+                <a href="#" class="footer-link" onclick="openModal('modal-privacidad'); return false;">Privacidad</a>
+                <span class="footer-separator">·</span>
+                <a href="#" class="footer-link" onclick="openModal('modal-cookies'); return false;">Cookies</a>
+            </div>
+            <div class="footer-copyright">
+                © 2026 ZUNCHOS. Infraestructura autónoma.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <h4 class="cookie-title">Protocolo de Cookies</h4>
+            <p class="cookie-text">
+                Usamos cookies propias y de terceros para que esta web zunche, analizar el tráfico y, si lo aceptas,
+                mejorar tu experiencia y mostrarte contenido zunxhado.
+
+                Puedes aceptar, rechazar o configurar tus preferencias en cualquier momento y obtener más información en
+                nuestra Política de Cookies.
+            </p>
+            <div class="cookie-actions">
+                <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Aceptar Todo</button>
+                <button class="cookie-btn cookie-reject" onclick="rejectCookies()">Solo Necesarias</button>
+                <a href="#" class="cookie-link" onclick="openModal('modal-cookies'); return false;">Ver Política</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals Backdrop -->
+    <div id="modal-backdrop" class="modal-backdrop" onclick="closeAllModals()"></div>
+
+    <!-- Modal: Aviso Legal -->
+    <div id="modal-legal" class="legal-modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Aviso Legal</h3>
+            <button class="modal-close" onclick="closeAllModals()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="legal-content">
+                <p>El presente Aviso Legal regula el acceso y uso del sitio web <strong>[DOMINIO]</strong> (en adelante,
+                    el “Sitio Web”), titularidad de <strong>[NOMBRE O RAZÓN SOCIAL]</strong>, con NIF
+                    <strong>74369784</strong> y domicilio en <strong>[DIRECCIÓN COMPLETA]</strong> (en adelante, el
+                    “Titular”).
+                </p>
+                <p>Puedes contactar con el Titular en el correo electrónico <strong>info@zunchos.io</strong> y/o en el
+                    teléfono <strong>965441687</strong>.</p>
+
+                <h4>Condiciones de uso</h4>
+                <p>El acceso y navegación por el Sitio Web implica la aceptación de este Aviso Legal, que puede ser
+                    modificado en cualquier momento. El usuario se compromete a hacer un uso diligente del Sitio Web, a
+                    no emplearlo para actividades ilícitas o contrarias a la buena fe y al orden público.</p>
+
+                <h4>Propiedad intelectual e industrial</h4>
+                <p>Todos los contenidos del Sitio Web (textos, marcas, logotipos, imágenes, código fuente, etc.) son
+                    titularidad del Titular o de terceros autorizados. Queda prohibida cualquier explotación sin
+                    autorización previa.</p>
+
+                <h4>Responsabilidad</h4>
+                <p>El Titular no garantiza la disponibilidad continua ni la infalibilidad del Sitio Web y excluye
+                    responsabilidad por daños derivados de ello.</p>
+
+                <h4>Legislación y jurisdicción</h4>
+                <p>Este Aviso Legal se rige por la legislación española. Para cualquier controversia, las partes se
+                    someten a los Juzgados de <strong>[CIUDAD]</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Política de Privacidad -->
+    <div id="modal-privacidad" class="legal-modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Política de Privacidad</h3>
+            <button class="modal-close" onclick="closeAllModals()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="legal-content">
+                <h4>Responsable del tratamiento</h4>
+                <ul>
+                    <li>Responsable: <strong>[NOMBRE O RAZÓN SOCIAL]</strong></li>
+                    <li>NIF: <strong>74369784</strong></li>
+                    <li>Domicilio: <strong>[DIRECCIÓN COMPLETA]</strong></li>
+                    <li>Email: <strong>[EMAIL PRIVACIDAD]</strong></li>
+                </ul>
+
+                <h4>Datos que tratamos</h4>
+                <p>Tratamos datos identificativos (nombre, email, empresa) y de navegación necesarios para la prestación
+                    del servicio.</p>
+
+                <h4>Finalidades</h4>
+                <p>Gestionar solicitudes de información, diagnósticos técnicos y comunicaciones comerciales si han sido
+                    autorizadas.</p>
+
+                <h4>Destinatarios</h4>
+                <p>No se cederán datos a terceros salvo obligación legal o proveedores de servicio necesarios (Stripe,
+                    hosting).</p>
+
+                <h4>Derechos</h4>
+                <p>Puede ejercer sus derechos de acceso, rectificación, supresión y oposición enviando un email a
+                    <strong>[EMAIL PRIVACIDAD]</strong>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Política de Cookies -->
+    <div id="modal-cookies" class="legal-modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Política de Cookies</h3>
+            <button class="modal-close" onclick="closeAllModals()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="legal-content">
+                <h4>¿Qué son las cookies?</h4>
+                <p>Archivos que se descargan en su dispositivo para almacenar información sobre navegación.</p>
+
+                <h4>Tipos utilizados</h4>
+                <ul>
+                    <li><strong>Técnicas:</strong> Necesarias para que la web funcione (Stripe, navegación).</li>
+                    <li><strong>Analíticas:</strong> Para medir el uso de la web (opcionales).</li>
+                </ul>
+
+                <h4>Configuración</h4>
+                <p>Puede aceptar o rechazar las cookies desde el banner de configuración o desde las opciones de su
+                    navegador.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Closer (Loaded separately) -->
+    <div id="chat-closer-container"></div>
+
+    <script src="script.js"></script>
+    <script src="chat-closer.js"></script>
+</body>
+
+</html>

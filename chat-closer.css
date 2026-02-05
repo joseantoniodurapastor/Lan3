@@ -1,0 +1,290 @@
+/* ============================================
+   CHAT-CLOSER INDUSTRIAL STYLING
+   Dark box, hard edges, no friendly bubbles
+   ============================================ */
+
+/* Chat Container */
+#chat-closer {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 400px;
+    max-height: 600px;
+    background: #0a0a0a;
+    border: 1px solid #3a3a3a;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    font-family: 'JetBrains Mono', monospace;
+    display: none;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#chat-closer.open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Chat Header */
+.chat-header {
+    background: #121212;
+    padding: 1.5rem;
+    border-bottom: 1px solid #3a3a3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    color: #808080;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.chat-close:hover {
+    color: #f0f0f0;
+}
+
+/* Chat Body */
+.chat-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: #0a0a0a;
+}
+
+.chat-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-body::-webkit-scrollbar-track {
+    background: #121212;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+    border-radius: 0;
+}
+
+/* Messages */
+.message {
+    margin-bottom: 1.5rem;
+}
+
+.message-bot {
+    background: #1a1a1a;
+    border-left: 3px solid #8b5a3c;
+    padding: 1rem 1.2rem;
+    color: #f0f0f0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.message-user {
+    background: #2a2a2a;
+    border-left: 3px solid #4a4a4a;
+    padding: 1rem 1.2rem;
+    color: #c0c0c0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Button Options */
+.button-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.chat-button {
+    background: #2a2a2a;
+    color: #f0f0f0;
+    border: 1px solid #4a4a4a;
+    padding: 1rem 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: none;
+}
+
+.chat-button:hover {
+    background: #3a3a3a;
+    border-color: #8b5a3c;
+    transform: translateX(3px);
+}
+
+.chat-button:active {
+    transform: translateX(0);
+}
+
+/* Input Fields */
+.input-group {
+    margin-top: 1rem;
+}
+
+.input-label {
+    display: block;
+    color: #c0c0c0;
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.chat-input {
+    width: 100%;
+    background: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    color: #f0f0f0;
+    padding: 0.8rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.chat-input:focus {
+    outline: none;
+    border-color: #8b5a3c;
+}
+
+.chat-input::placeholder {
+    color: #606060;
+}
+
+textarea.chat-input {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* Submit Button */
+.submit-button {
+    background: #2a2a2a;
+    color: #f0f0f0;
+    border: 2px solid #4a4a4a;
+    padding: 1rem 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.submit-button:hover {
+    background: #3a3a3a;
+    border-color: #8b5a3c;
+}
+
+.submit-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Primary CTA (Stripe payment button) */
+.cta-primary {
+    background: #8b5a3c;
+    border-color: #8b5a3c;
+    margin-top: 1rem;
+}
+
+.cta-primary:hover {
+    background: #6b4423;
+    border-color: #6b4423;
+}
+
+/* Small text */
+.small-text {
+    font-size: 0.7rem;
+    color: #808080;
+    line-height: 1.5;
+    margin-top: 0.8rem;
+}
+
+/* Chat Trigger (collapsed state) */
+#chat-trigger {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #1a1a1a;
+    border: 2px solid #3a3a3a;
+    border-radius: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+#chat-trigger:hover {
+    background: #2a2a2a;
+    border-color: #8b5a3c;
+    transform: scale(1.05);
+}
+
+#chat-trigger.hidden {
+    display: none;
+}
+
+.trigger-icon {
+    width: 30px;
+    height: 30px;
+    color: #f0f0f0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    #chat-closer {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        max-height: 100vh;
+        border: none;
+        border-top: 1px solid #3a3a3a;
+    }
+
+    #chat-trigger {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Loading State */
+.loading {
+    color: #808080;
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
