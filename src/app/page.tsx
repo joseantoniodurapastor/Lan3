@@ -12,11 +12,147 @@ export default function Home() {
     const [cookieBannerVisible, setCookieBannerVisible] = useState(false);
 
     useEffect(() => {
-        // Check cookies
-        const consent = localStorage.getItem("zunchos_cookie_consent");
-        if (!consent) {
-            setTimeout(() => setCookieBannerVisible(true), 1500);
-        }
+        // Parallax configuration
+        const parallaxConfig: any = {
+            hero: { background: 0.5, lamp: 0.3, foreground: 1.0 },
+            descenso: { background: 0.4, midground: 0.7, foreground: 1.0, deep: 1.2 },
+            tension: { background: 0.3, midground: 0.6, foreground: 1.0 },
+            nucleo: { background: 0.6, foreground: 1.0 },
+            resultado: { background: 0.8, foreground: 1.0 },
+            cierre: { background: 0.9, foreground: 1.0 }
+        };
+
+        let rafId: number | null = null;
+
+        const handleParallax = () => {
+            const scrolled = window.scrollY;
+
+            // Section 1: IMPACTO
+            const impacto = document.querySelector('#impacto') as HTMLElement;
+            if (impacto) {
+                // const impactoOffset = impacto.offsetTop; // 0 usually
+                const impactoHeight = impacto.offsetHeight;
+                if (scrolled < impactoHeight) {
+                    const bgWall = impacto.querySelector('.background-wall') as HTMLElement;
+                    const lamp = impacto.querySelector('.lamp-light') as HTMLElement;
+                    const fg = impacto.querySelector('.foreground') as HTMLElement;
+
+                    if (bgWall) bgWall.style.transform = `translateY(${scrolled * parallaxConfig.hero.background}px)`;
+                    if (lamp) lamp.style.transform = `translateY(${scrolled * parallaxConfig.hero.lamp}px)`;
+                    if (fg) fg.style.transform = `translateY(${scrolled * parallaxConfig.hero.foreground * 0.2}px)`;
+                }
+            }
+
+            // Section 2: DESCENSO
+            const descenso = document.querySelector('#descenso') as HTMLElement;
+            if (descenso) {
+                const descensoOffset = descenso.offsetTop;
+                const descensoHeight = descenso.offsetHeight;
+                const relativeScroll = scrolled - descensoOffset;
+
+                if (relativeScroll > -window.innerHeight && relativeScroll < descensoHeight) {
+                    const bgWall = descenso.querySelector('.background-wall') as HTMLElement;
+                    const mg = descenso.querySelector('.midground') as HTMLElement;
+                    const fg = descenso.querySelector('.foreground') as HTMLElement;
+                    const deep = descenso.querySelector('.deep-foreground') as HTMLElement;
+
+                    if (bgWall) bgWall.style.transform = `translateY(${relativeScroll * parallaxConfig.descenso.background}px)`;
+                    if (mg) mg.style.transform = `translateY(${relativeScroll * parallaxConfig.descenso.midground}px)`;
+                    if (fg) fg.style.transform = `translateY(${relativeScroll * parallaxConfig.descenso.foreground}px)`;
+                    if (deep) deep.style.transform = `translateY(${relativeScroll * parallaxConfig.descenso.deep}px)`;
+
+                    // Stagger fade-in for statements (Re-implemented in React/CSS via classes mostly, but if logical trigger needed:)
+                    const statements = descenso.querySelectorAll('.statement');
+                    statements.forEach((stmt: any, index) => {
+                        const delay = index * 200;
+                        const triggerPoint = descensoHeight * 0.3 + delay;
+                        if (relativeScroll > triggerPoint) {
+                            stmt.style.animationDelay = `${delay}ms`;
+                        }
+                    });
+                }
+            }
+
+            // Section 3: TENSIÓN
+            const tension = document.querySelector('#tension') as HTMLElement;
+            if (tension) {
+                const tensionOffset = tension.offsetTop;
+                const tensionHeight = tension.offsetHeight;
+                const relativeScroll = scrolled - tensionOffset;
+
+                if (relativeScroll > -window.innerHeight && relativeScroll < tensionHeight) {
+                    const bgWall = tension.querySelector('.background-wall') as HTMLElement;
+                    const mg = tension.querySelector('.midground') as HTMLElement;
+                    const fg = tension.querySelector('.foreground') as HTMLElement;
+
+                    if (bgWall) bgWall.style.transform = `translateY(${relativeScroll * parallaxConfig.tension.background}px)`;
+                    if (mg) mg.style.transform = `translateY(${relativeScroll * parallaxConfig.tension.midground}px)`;
+                    if (fg) fg.style.transform = `translateY(${relativeScroll * parallaxConfig.tension.foreground}px)`;
+                }
+            }
+
+            // Section 4: NÚCLEO
+            const nucleo = document.querySelector('#nucleo') as HTMLElement;
+            if (nucleo) {
+                const nucleoOffset = nucleo.offsetTop;
+                const nucleoHeight = nucleo.offsetHeight;
+                const relativeScroll = scrolled - nucleoOffset;
+
+                if (relativeScroll > -window.innerHeight && relativeScroll < nucleoHeight) {
+                    const bgWall = nucleo.querySelector('.background-wall') as HTMLElement;
+                    const fg = nucleo.querySelector('.foreground') as HTMLElement;
+
+                    if (bgWall) bgWall.style.transform = `translateY(${relativeScroll * parallaxConfig.nucleo.background}px)`;
+                    if (fg) fg.style.transform = `translateY(${relativeScroll * parallaxConfig.nucleo.foreground * 0.3}px)`;
+                }
+            }
+
+            // Section 5: RESULTADO
+            const resultado = document.querySelector('#resultado') as HTMLElement;
+            if (resultado) {
+                const resultadoOffset = resultado.offsetTop;
+                const resultadoHeight = resultado.offsetHeight;
+                const relativeScroll = scrolled - resultadoOffset;
+
+                if (relativeScroll > -window.innerHeight && relativeScroll < resultadoHeight) {
+                    const bgWall = resultado.querySelector('.background-wall') as HTMLElement;
+                    const fg = resultado.querySelector('.foreground') as HTMLElement;
+
+                    if (bgWall) bgWall.style.transform = `translateY(${relativeScroll * parallaxConfig.resultado.background}px)`;
+                    if (fg) fg.style.transform = `translateY(${relativeScroll * parallaxConfig.resultado.foreground * 0.2}px)`;
+                }
+            }
+
+            // Section 6: CIERRE
+            const cierre = document.querySelector('#cierre') as HTMLElement;
+            if (cierre) {
+                const cierreOffset = cierre.offsetTop;
+                const cierreHeight = cierre.offsetHeight;
+                const relativeScroll = scrolled - cierreOffset;
+
+                if (relativeScroll > -window.innerHeight && relativeScroll < cierreHeight) {
+                    const bgWall = cierre.querySelector('.background-wall') as HTMLElement;
+                    const fg = cierre.querySelector('.foreground') as HTMLElement;
+
+                    if (bgWall) bgWall.style.transform = `translateY(${relativeScroll * parallaxConfig.cierre.background}px)`;
+                    if (fg) fg.style.transform = `translateY(${relativeScroll * parallaxConfig.cierre.foreground * 0.1}px)`;
+                }
+            }
+        };
+
+        const onScroll = () => {
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(handleParallax);
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        // Initial call
+        handleParallax();
+
+        return () => {
+            window.removeEventListener('scroll', onScroll);
+            if (rafId) cancelAnimationFrame(rafId);
+        };
     }, []);
 
     const acceptCookies = () => {
@@ -33,11 +169,6 @@ export default function Home() {
 
     return (
         <main>
-            {/* Parallax Layers managed via CSS/Client Component or sticking to CSS-only if possible, 
-           or importing a specific client component for the parallax effect if complex JS was involved.
-           Given the legacy script used requestAnimationFrame, we should wrap that logic.
-       */}
-
             <ParallaxSection id="impacto" parallaxId="hero" className="section">
                 <div className="parallax-layer background-wall"></div>
                 <div className="parallax-layer lamp-light"></div>
@@ -51,6 +182,7 @@ export default function Home() {
             </ParallaxSection>
 
             <ParallaxSection id="descenso" parallaxId="descenso" className="section">
+                {/* ... (rest of the sections remain same, using ParallaxSection as wrapper) ... */}
                 <div className="parallax-layer background-wall"></div>
                 <div className="parallax-layer midground">
                     <div className="content-block">
@@ -137,7 +269,7 @@ export default function Home() {
                             Si tu agencia depende de personas para no romperse,<br />
                             está <span className="highlight-term">deszunchada</span>.
                         </p>
-                        <button className="cta-button" id="cta-main" onClick={() => window.openChatCloser && window.openChatCloser()}>Revisar puntos de tensión</button>
+                        <button className="cta-button" id="cta-main" onClick={() => (window as any).openChatCloser && (window as any).openChatCloser()}>Revisar puntos de tensión</button>
                     </div>
                 </div>
             </ParallaxSection>
@@ -147,7 +279,7 @@ export default function Home() {
                     <h2 className="affirmation-header text-center mb-12">Preguntas Frecuentes</h2>
                     <div className="mb-8">
                         <h3 className="text-white text-xl mb-2 font-space">¿Qué es ZUNCHOS?</h3>
-                        <p className="text-secondary text-sm">ZUNCHOS es una infraestructura comercial autónoma diseñada para agencias B2B. Sustituye la dependencia de SDRs humanos por arquitectura digital.</p>
+                        <p className="text-secondary text-sm">ZUNCHOS es una infraestructura comercial autónoma diseñada para agencias B2B.</p>
                     </div>
                     <div className="mb-8">
                         <h3 className="text-white text-xl mb-2 font-space">¿Cómo funciona?</h3>
@@ -206,24 +338,8 @@ export default function Home() {
     );
 }
 
-// Helper Components
+// Helper Components (Simplified)
 function ParallaxSection({ id, parallaxId, className, children }: any) {
-    const [offset, setOffset] = useState(0);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            // Simple parallax calc - in a real migration we would port the full engine
-            // For now, we rely on the migrated CSS structure and simple offset
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    // NOTE: In a full rigorous migration, we'd reimplement the RAF logic from script.js here
-    // For Vercel deployment speed, we will use the legacy script adapted or a simpler react version.
-    // However, user wants "Vercel-ready", so proper React is best. 
-    // We will assume a ParallaxEngine component handles the global animation loop.
     return (
         <section id={id} className={className} data-parallax={parallaxId}>
             {children}
