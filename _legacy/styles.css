@@ -1,0 +1,724 @@
+/* ============================================
+   ZUNCHOS INDUSTRIAL DESIGN SYSTEM
+   Dark, heavy, oxidized steel aesthetic
+   ============================================ */
+
+/* ===== CSS RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'JetBrains Mono', monospace;
+    background: #0a0a0a;
+    color: #f0f0f0;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+p {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+}
+
+/* ===== COLOR PALETTE ===== */
+:root {
+    --almost-black: #0a0a0a;
+    --dark-bg: #121212;
+    --steel-dark: #1a1a1a;
+    --steel-mid: #2a2a2a;
+    --steel-light: #3a3a3a;
+    --steel-border: #4a4a4a;
+    --rust-dark: #6b4423;
+    --rust-mid: #8b5a3c;
+    --text-primary: #f0f0f0;
+    --text-secondary: #c0c0c0;
+    --text-dim: #808080;
+}
+
+/* ===== UTILITIES ===== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ===== SECTION BASE ===== */
+.section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* ===== PARALLAX LAYERS ===== */
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+}
+
+.background-wall {
+    background-image: url('Utils/pared.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.3) contrast(1.2);
+    z-index: 1;
+}
+
+.background-wall::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+    pointer-events: none;
+}
+
+.lamp-light {
+    background-image: url('Utils/lampara.png');
+    background-size: 400px auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: 2;
+    mix-blend-mode: screen;
+}
+
+.midground {
+    z-index: 5;
+}
+
+.foreground {
+    z-index: 10;
+    position: relative;
+}
+
+.deep-foreground {
+    z-index: 15;
+}
+
+/* ===== CONTENT BLOCKS ===== */
+.content-block {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* ===== SECTION 1: IMPACTO ===== */
+#impacto {
+    background: var(--almost-black);
+}
+
+#impacto .foreground {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-logo {
+    width: 90%;
+    max-width: 800px;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.9));
+    opacity: 0;
+    animation: fadeInLogo 2s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInLogo {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== SECTION 2: DESCENSO ===== */
+#descenso {
+    background: var(--dark-bg);
+}
+
+.text-engraved {
+    margin: 4rem 0;
+}
+
+.statement {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 500;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.4;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: engraveIn 1s ease-out forwards;
+}
+
+.statement-critical {
+    color: var(--rust-mid);
+    font-weight: 700;
+}
+
+@keyframes engraveIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== SECTION 3: TENSIÓN ===== */
+.section-tension {
+    background: var(--steel-dark);
+    min-height: 120vh;
+}
+
+.tension-metaphor {
+    margin-bottom: 8rem;
+}
+
+.metaphor-line {
+    margin: 3rem 0;
+}
+
+.metaphor-item {
+    display: inline-block;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 3px solid var(--steel-border);
+    padding-bottom: 1rem;
+}
+
+.tension-conclusion {
+    margin-top: 8rem;
+}
+
+.inequality {
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 700;
+    color: var(--rust-dark);
+    margin-bottom: 3rem;
+}
+
+.solution-statement {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 2px solid var(--steel-border);
+    padding: 2rem 3rem;
+    display: inline-block;
+    background: rgba(10, 10, 10, 0.8);
+}
+
+/* ===== SECTION 4: NÚCLEO ===== */
+.section-nucleo {
+    background: var(--steel-mid);
+}
+
+.nucleo-content {
+    max-width: 900px;
+}
+
+.nucleo-denial {
+    margin-bottom: 5rem;
+}
+
+.denial-item {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: var(--text-dim);
+    text-decoration: line-through;
+    margin: 1.5rem 0;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+.nucleo-affirmation {
+    border-top: 2px solid var(--steel-border);
+    padding-top: 3rem;
+}
+
+.affirmation-header {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.affirmation-list {
+    list-style: none;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.affirmation-list li {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: var(--text-primary);
+    font-weight: 500;
+    margin: 2rem 0;
+    padding-left: 3rem;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.affirmation-list li::before {
+    content: '▬';
+    position: absolute;
+    left: 0;
+    color: var(--rust-mid);
+    font-weight: 700;
+}
+
+/* ===== SECTION 5: RESULTADO ===== */
+.section-resultado {
+    background: var(--steel-dark);
+}
+
+.resultado-list {
+    margin-bottom: 5rem;
+}
+
+.resultado-item {
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin: 2.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.resultado-conclusion {
+    border-top: 2px solid var(--steel-border);
+    padding-top: 3rem;
+}
+
+.conclusion-statement {
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: var(--text-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* ===== SECTION 6: CIERRE ===== */
+.section-cierre {
+    background: var(--almost-black);
+    min-height: 100vh;
+}
+
+.cierre-content {
+    max-width: 1000px;
+}
+
+.final-statement {
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    color: var(--text-secondary);
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 4rem;
+    letter-spacing: 0.02em;
+}
+
+.highlight-term {
+    color: var(--rust-mid);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--steel-mid);
+    color: var(--text-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 2rem 4rem;
+    border: 2px solid var(--steel-border);
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background: var(--steel-light);
+    border-color: var(--rust-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .content-block {
+        padding: 1rem;
+    }
+
+    .hero-logo {
+        width: 95%;
+    }
+
+    .metaphor-item {
+        font-size: clamp(1.5rem, 8vw, 3rem);
+    }
+
+    .affirmation-list li {
+        padding-left: 2rem;
+    }
+
+    .cta-button {
+        padding: 1.5rem 2.5rem;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: var(--steel-dark);
+    border-top: 1px solid var(--steel-border);
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 100;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 1.5rem;
+}
+
+.footer-link {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--text-primary);
+}
+
+.footer-separator {
+    color: var(--steel-border);
+    margin: 0 1rem;
+}
+
+.footer-copyright {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-separator {
+        margin: 0 0.5rem;
+    }
+}
+
+/* ===== COOKIE BANNER ===== */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #0a0a0a;
+    border-top: 2px solid var(--steel-border);
+    padding: 1.5rem;
+    z-index: 11000;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.cookie-banner.visible {
+    transform: translateY(0);
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.cookie-title {
+    font-size: 0.9rem;
+    color: var(--rust-mid);
+    margin-right: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.cookie-text {
+    flex: 1;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    min-width: 300px;
+}
+
+.cookie-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cookie-btn {
+    padding: 0.8rem 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.cookie-accept {
+    background: var(--steel-mid);
+    color: var(--text-primary);
+    border-color: var(--steel-border);
+}
+
+.cookie-accept:hover {
+    background: var(--rust-dark);
+    border-color: var(--rust-mid);
+}
+
+.cookie-reject {
+    background: transparent;
+    color: var(--text-dim);
+    border: 1px solid var(--steel-border);
+}
+
+.cookie-reject:hover {
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+}
+
+.cookie-link {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+/* ===== LEGAL MODALS ===== */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(2px);
+    z-index: 12000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.legal-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -45%) scale(0.95);
+    width: 90%;
+    max-width: 800px;
+    max-height: 85vh;
+    background: var(--almost-black);
+    border: 1px solid var(--steel-border);
+    z-index: 12001;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+}
+
+.legal-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--steel-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--dark-bg);
+}
+
+.modal-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+    color: var(--rust-mid);
+}
+
+.modal-body {
+    padding: 2rem;
+    overflow-y: auto;
+    color: var(--text-secondary);
+}
+
+/* Custom Scrollbar for Modal */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: var(--steel-light);
+    border: 1px solid var(--dark-bg);
+}
+
+.legal-content h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin: 1.5rem 0 0.8rem 0;
+    text-transform: uppercase;
+}
+
+.legal-content p,
+.legal-content li {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+.legal-content ul {
+    list-style-position: inside;
+    margin-bottom: 1rem;
+}
+
+.legal-content strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .cookie-text {
+        min-width: 100%;
+    }
+
+    .cookie-actions {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .legal-modal {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .modal-body {
+        padding: 1.5rem;
+    }
+}
